@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface Task : NSObject
+
+- (id)initWithName:(NSString *) name;
+
+@property (nonatomic, copy) NSString *name;
 
 @end

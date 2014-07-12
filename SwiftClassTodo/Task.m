@@ -10,4 +10,17 @@
 
 @implementation Task
 
+// custom initializer
+- (id)initWithName:(NSString *) name {
+    self = [super init];
+    if (self) {
+        _name = name;
+    }
+    return self;
+}
+
+- (NSString *)description {
+    return self.name;
+}
+
 @end

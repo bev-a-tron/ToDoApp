@@ -18,7 +18,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
         didSet {
             // Update the view.
             self.configureView()
-
+            
             if self.masterPopoverController != nil {
                 self.masterPopoverController!.dismissPopoverAnimated(true)
             }
@@ -29,7 +29,8 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
         // Update the user interface for the detail item.
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                // this is what's in the view
+                label.text = "You should go vegan"
             }
         }
     }

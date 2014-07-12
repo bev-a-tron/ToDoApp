@@ -5,14 +5,26 @@
 //  Created by balau on 7/12/14.
 //  Copyright (c) 2014 ___ThoughtWorks___. All rights reserved.
 //
+//  Questions for JP:
+//  @SIMJP, JP Simard, Realm.io
+//
 
 import UIKit
+
+class SwiftTask {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    func description() -> String {
+        return name
+    }
+}
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = NSMutableArray()
-
+    var objects = [Task]()        // creating a typed array, generic array that only takes NSDates
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,20 +53,34 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        if objects == nil {
-            objects = NSMutableArray()
+        let alert = UIAlertController(title: "New Task",
+            message: "",
+            preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { textField in textField.placeholder = "Buy soy milk"
         }
-        objects.insertObject(NSDate.date(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let cancelAction = UIAlertAction(title: "Cancel",
+            style: .Default) { action in alert.dismissViewControllerAnimated(true) {}
+        }
+        alert.addAction(cancelAction)
+        let createAction = UIAlertAction(title: "Create",
+            style: .Default) { action in
+                    let textField = alert.textFields[0] as UITextField
+                    self.addTask(Task(name: textField.text))
+        }
+        alert.addAction(createAction)
+        presentViewController(alert, animated: true) {}
+    }
+    
+    func addTask(task: Task) {
+        objects += task
+        let indexPath = NSIndexPath(forRow: objects.count - 1, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
-
-    // #pragma mark - Segues
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let object = objects[indexPath.row] as NSDate
+            let object = objects[indexPath.row]
             ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = object
         }
     }
@@ -72,7 +98,7 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let object = objects[indexPath.row] as NSDate
+        let object = objects[indexPath.row]
         cell.textLabel.text = object.description
         return cell
     }
@@ -84,7 +110,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeObjectAtIndex(indexPath.row)
+            objects.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -93,7 +119,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            let object = objects[indexPath.row] as NSDate
+            let object = objects[indexPath.row]
             self.detailViewController!.detailItem = object
         }
     }
