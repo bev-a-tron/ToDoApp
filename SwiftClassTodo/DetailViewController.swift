@@ -30,6 +30,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 // this is what's in the view
+                
                 label.text = detail.description + " is vegan!"
                 navigationItem.title = detail.description
 

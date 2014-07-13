@@ -12,7 +12,9 @@
 @interface Task : NSObject
 
 - (id)initWithName:(NSString *) name;
+- (id)initWithIsVegan:(NSString *) isVegan;
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *isVegan;
 
 @end

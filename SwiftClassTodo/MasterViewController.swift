@@ -13,11 +13,16 @@ import UIKit
 
 class SwiftTask {
     var name: String
-    init(name: String) {
+    var isVegan: String
+    init(name: String, isVegan: String) {
         self.name = name
+        self.isVegan = isVegan
     }
     func description() -> String {
         return name
+    }
+    func getVeganStatus() -> String {
+        return isVegan
     }
 }
 
@@ -65,7 +70,7 @@ class MasterViewController: UITableViewController {
         let createAction = UIAlertAction(title: "Check",
             style: .Default) { action in
                     let textField = alert.textFields[0] as UITextField
-                    self.addTask(Task(name: textField.text))
+                self.addTask(Task(name: textField.text))
         }
         alert.addAction(createAction)
         presentViewController(alert, animated: true) {}

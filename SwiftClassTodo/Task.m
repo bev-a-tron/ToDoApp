@@ -19,8 +19,20 @@
     return self;
 }
 
+- (id)initWithIsVegan:(NSString *)isVegan {
+    self = [super init];
+    if (self) {
+        isVegan = isVegan;
+    }
+    return self;
+}
+
 - (NSString *)description {
     return self.name;
+}
+
+- (NSString *)getVeganStatus {
+    return self.isVegan;
 }
 
 @end
