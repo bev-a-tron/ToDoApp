@@ -12,4 +12,4 @@ Realistic goals:
 -Hard code a list of vegan alternatives or veganized items 
 
 12 July 2014 
-#slugfest
+slugfest
