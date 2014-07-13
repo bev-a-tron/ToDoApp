@@ -53,16 +53,16 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        let alert = UIAlertController(title: "New Task",
+        let alert = UIAlertController(title: "Item to be verified:",
             message: "",
             preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler { textField in textField.placeholder = "Buy soy milk"
+        alert.addTextFieldWithConfigurationHandler { textField in textField.placeholder = "Cocoa butter"
         }
         let cancelAction = UIAlertAction(title: "Cancel",
             style: .Default) { action in alert.dismissViewControllerAnimated(true) {}
         }
         alert.addAction(cancelAction)
-        let createAction = UIAlertAction(title: "Create",
+        let createAction = UIAlertAction(title: "Check",
             style: .Default) { action in
                     let textField = alert.textFields[0] as UITextField
                     self.addTask(Task(name: textField.text))

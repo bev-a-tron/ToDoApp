@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C058E221971E6B9006979AE /* popsicle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C058E211971E6B9006979AE /* popsicle.png */; };
 		6CEC539F1971AC3A005898D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC539E1971AC3A005898D6 /* AppDelegate.swift */; };
 		6CEC53A11971AC3A005898D6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC53A01971AC3A005898D6 /* MasterViewController.swift */; };
 		6CEC53A31971AC3A005898D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEC53A21971AC3A005898D6 /* DetailViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C058E211971E6B9006979AE /* popsicle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popsicle.png; path = ../../../Documents/Personal/Photos/popsicle.png; sourceTree = "<group>"; };
 		6CEC53991971AC3A005898D6 /* SwiftClassTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClassTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CEC539D1971AC3A005898D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CEC539E1971AC3A005898D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		6CEC539C1971AC3A005898D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6C058E211971E6B9006979AE /* popsicle.png */,
 				6CEC539D1971AC3A005898D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CEC53A61971AC3A005898D6 /* Main.storyboard in Resources */,
+				6C058E221971E6B9006979AE /* popsicle.png in Resources */,
 				6CEC53A81971AC3A005898D6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +418,7 @@
 				6CEC53B91971AC3A005898D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CEC53BA1971AC3A005898D6 /* Build configuration list for PBXNativeTarget "SwiftClassTodoTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				6CEC53BC1971AC3A005898D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

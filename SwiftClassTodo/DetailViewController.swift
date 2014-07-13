@@ -30,11 +30,19 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 // this is what's in the view
-                label.text = "You should go vegan"
+                label.text = detail.description + " is vegan!"
+                navigationItem.title = detail.description
+
+                var imageView = UIImageView(frame: CGRectMake(100, 150, 150, 150));
+                var image = UIImage(named: "popsicle.png");
+                imageView.image = image;
+                self.view.addSubview(imageView);
             }
         }
     }
-
+    
+    @IBOutlet var Photo: UIImageView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
